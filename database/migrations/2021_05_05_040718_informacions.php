@@ -30,6 +30,6 @@ class Informacions extends Migration
      */
     public function down()
     {
-        //
+      Schema::dropIfExists('informacions');  //
     }
 }

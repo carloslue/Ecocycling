@@ -22,8 +22,8 @@ class Promociones extends Migration
          $table->decimal('precio');
 
          $table->timestamps();
-         $table->foreign('rutasID')->references('id')->on('rutas');
-         $table->foreign('equipoID')->references('id')->on('equipos');
+         $table->foreign('rutasID')->references('id')->on('rutas')->onDelete('cascade')->onUpdate('cascade');
+         $table->foreign('equipoID')->references('id')->on('equipos')->onDelete('cascade')->onUpdate('cascade');
 
      });   //
     }

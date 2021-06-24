@@ -33,11 +33,12 @@
                     <!-- Left Side Of Navbar -->
                     @if (Auth::check())
                     <ul class="navbar-nav mr-auto">
-                        <a class="nav-link" href="{{ route('comentarios.index') }}">{{ __('comentarios') }}</a>
-                        <a class="nav-link" href="{{ route('informacions.index') }}">{{ __('informacion') }}</a>
-                        <a class="nav-link" href="{{ route('rutas.index') }}">{{ __('rutas') }}</a>
-                        <a class="nav-link" href="{{ route('equipos.index') }}">{{ __('equipos') }}</a>
-                        <a class="nav-link" href="{{ route('promociones.index') }}">{{ __('promociones') }}</a>
+                        <a class="btn nav-link" href="{{ route('comenta') }}">{{ __('comentarios') }}</a>
+                        <a class="btn nav-link" href="{{ route('informa') }}">{{ __('informacion') }}</a>
+                        <a class="btn nav-link" href="{{ route('inicio') }}">{{ __('rutas') }}</a>
+                        <a class="btn nav-link" href="{{ route('promocione') }}">{{ __('promociones') }}</a>
+                        <a class="btn nav-link" href="{{ route('client') }}">{{ __('clientes') }}</a>
+                        <a class="btn nav-link" href="{{ route('reservaindex') }}">{{ __('reservas') }}</a>
               
                     </ul>
                     @endif
@@ -84,12 +85,26 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <div class=" barra footer">
+            hola
+            <Br></Br>
+        
+        este es el <br>footer
     </div>
+    </div>
+
+    
 </body>
 </html>
 
 <style>
     .barra{
-        background: darkturquoise;
+        background: rgb(12, 65, 209);
+       
+    }
+
+    .btn{
+        
+        
     }
     </style>

@@ -16,7 +16,7 @@ class Equipos extends Migration
        Schema::create('equipos', function (Blueprint $table) {
            $table->bigIncrements('id');
            $table->integer('cantidad');
-           $table->string('descripcion');
+           $table->string('descripcion_equipo');
            
            $table->timestamps();
        }); //

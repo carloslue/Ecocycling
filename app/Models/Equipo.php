@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property $id
  * @property $cantidad
- * @property $descripcion
+ * @property $descripcion_equipo
  * @property $created_at
  * @property $updated_at
  *
+ * @property Promocione[] $promociones
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -21,7 +22,7 @@ class Equipo extends Model
     
     static $rules = [
 		'cantidad' => 'required',
-		'descripcion' => 'required',
+		'descripcion_equipo' => 'required',
     ];
 
     protected $perPage = 20;
@@ -31,8 +32,16 @@ class Equipo extends Model
      *
      * @var array
      */
-    protected $fillable = ['cantidad','descripcion'];
+    protected $fillable = ['cantidad','descripcion_equipo'];
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function promociones()
+    {
+        return $this->hasMany('App\Models\Promocione', 'equipoID', 'id');
+    }
+    
 
 }

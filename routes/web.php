@@ -14,15 +14,53 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 Auth::routes();
 
-Route::resource('comentarios',App\Http\Controllers\ComentarioController::class)->middleware('auth');
-Route::resource('informacions',App\Http\Controllers\InformacionController::class)->middleware('auth');
-Route::resource('rutas',App\Http\Controllers\RutaController::class)->middleware('auth');
-Route::resource('equipos',App\Http\Controllers\EquipoController::class)->middleware('auth');
-Route::resource('promociones',App\Http\Controllers\PromocioneController::class)->middleware('auth');
+/*seccion donde se especifica  todas las rutas que se van a a usar en la parte usuario o cliente*/
+Route::resource('comentar',App\Http\Controllers\cliente\ComentarioController::class)->middleware('auth');
+Route::get('cliente/comentarios',[App\Http\Controllers\cliente\ComentarioController::class,'index'])->name('comenta')->middleware('auth');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('informacion',App\Http\Controllers\cliente\InformacionController::class)->middleware('auth');
+Route::get('cliente/informacions',[App\Http\Controllers\cliente\InformacionController::class,'index'])->name('informa')->middleware('auth');
+
+Route::resource('ruta',App\Http\Controllers\cliente\RutaController::class)->middleware('auth');
+Route::get('cliente/rutas',[App\Http\Controllers\cliente\RutaController::class,'index'])->name('inicio')->middleware('auth');
+
+Route::resource('clientee',App\Http\Controllers\cliente\ClienteController::class)->middleware('auth');
+Route::get('cliente/clientes',[App\Http\Controllers\cliente\ClienteController::class,'index'])->name('client')->middleware('auth');
+
+Route::resource('reserva',App\Http\Controllers\cliente\ReservaController::class)->middleware('auth');
+Route::get('cliente/reservas',[App\Http\Controllers\cliente\ReservaController::class,'index'])->name('reservaindex')->middleware('auth');
+
+Route::resource('promocion',App\Http\Controllers\cliente\PromocioneController::class)->middleware('auth');
+Route::get('cliente/promociones',[App\Http\Controllers\cliente\PromocioneController::class,'index'])->name('promocione')->middleware('auth');
+
+
+
+/*sector donde se especifica todas las rutas de la parte administrativa*/
+Route::resource('comentarios',App\Http\Controllers\administrador\ComentarioController::class)->middleware('auth');
+Route::get('comentarios',[App\Http\Controllers\administrador\ComentarioController::class,'index'])->name('comentarios')->middleware('auth');
+
+Route::resource('administrador/informacions',App\Http\Controllers\administrador\InformacionController::class)->middleware('auth');
+Route::get('administrador/informacions',[App\Http\Controllers\administrador\InformacionController::class,'index'])->name('informacion')->middleware('auth');
+
+Route::resource('administrador/rutas',App\Http\Controllers\administrador\RutaController::class)->middleware('auth');
+Route::get('administrador/rutas',[App\Http\Controllers\administrador\RutaController::class,'index'])->name('rutas')->middleware('auth');
+
+Route::resource('administrador/equipos',App\Http\Controllers\administrador\EquipoController::class)->middleware('auth');
+Route::get('administrador/equipos',[App\Http\Controllers\administrador\EquipoController::class,'index'])->name('equipos')->middleware('auth');
+
+Route::resource('administrador/clientes',App\Http\Controllers\administrador\ClienteController::class)->middleware('auth');
+Route::get('administrador/clientes',[App\Http\Controllers\administrador\ClienteController::class,'index'])->name('clientes')->middleware('auth');
+
+Route::resource('administrador/reservas',App\Http\Controllers\administrador\ReservaController::class)->middleware('auth');
+Route::get('administrador/reservas',[App\Http\Controllers\administrador\ReservaController::class,'index'])->name('reservas')->middleware('auth');
+
+
+Route::resource('administrador/promociones',App\Http\Controllers\administrador\PromocioneController::class)->middleware('auth');
+Route::get('administrador/promociones',[App\Http\Controllers\administrador\PromocioneController::class,'index'])->name('promociones')->middleware('auth');
+
+Route::get('home', [App\Http\Controllers\administrador\HomeController::class, 'index'])->name('home');

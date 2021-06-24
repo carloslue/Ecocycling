@@ -9,10 +9,12 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property $id
  * @property $imagen
- * @property $descripcion
+ * @property $descripcion_rutas
  * @property $created_at
  * @property $updated_at
  *
+ * @property Promocione[] $promociones
+ * @property Reserva[] $reservas
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -21,7 +23,7 @@ class Ruta extends Model
     
     static $rules = [
 		'imagen' => 'required',
-		'descripcion' => 'required',
+		'descripcion_rutas' => 'required',
     ];
 
     protected $perPage = 20;
@@ -31,8 +33,24 @@ class Ruta extends Model
      *
      * @var array
      */
-    protected $fillable = ['imagen','descripcion'];
+    protected $fillable = ['imagen','descripcion_rutas'];
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function promociones()
+    {
+        return $this->hasMany('App\Models\Promocione', 'rutasID', 'id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reservas()
+    {
+        return $this->hasMany('App\Models\Reserva', 'rutaID', 'id');
+    }
+    
 
 }
