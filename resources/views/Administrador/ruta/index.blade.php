@@ -38,7 +38,9 @@
                                         <th>No</th>
 
                                         <th>Imagen</th>
+                                        <th>Titulo</th>
                                         <th>Descripcion Rutas</th>
+                                        <th>Precio</th>
 
                                         <th></th>
                                     </tr>
@@ -52,7 +54,9 @@
                                                 <img src="{{ asset('imagenes/' . $ruta->imagen) }}"
                                                     alt=" {{ $ruta->imagen }}" height="100px" width="100px">
                                             </td>
+                                            <td>{{ $ruta->titulo }}</td>
                                             <td>{{ $ruta->descripcion_rutas }}</td>
+                                            <td>{{ $ruta->costo }}</td>
 
                                             <td>
                                                 <form action="{{ route('rutas.destroy', $ruta->id) }}" method="POST">

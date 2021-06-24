@@ -30,6 +30,7 @@ class Promocione extends Model
 		'cantidad' => 'required',
 		'descripcion' => 'required',
 		'precio' => 'required',
+        'fecha_vigencia' => 'required',
     ];
 
     protected $perPage = 20;
@@ -39,7 +40,7 @@ class Promocione extends Model
      *
      * @var array
      */
-    protected $fillable = ['rutasID','equipoID','cantidad','descripcion','precio'];
+    protected $fillable = ['rutasID','equipoID','cantidad','descripcion','precio','fecha_vigencia'];
 
 
     /**

@@ -26,7 +26,7 @@ class PromocioneController extends Controller
             $Promociones = DB::table('promociones')
             ->join('equipos', 'equipos.id', '=', 'promociones.equipoID')
             ->join('rutas', 'rutas.id', '=', 'promociones.rutasID')
-            ->select('promociones.*', 'rutas.descripcion_rutas','equipos.descripcion_equipo')
+            ->select('promociones.*', 'rutas.titulo','equipos.descripcion_equipo')
             ->get();
 
           

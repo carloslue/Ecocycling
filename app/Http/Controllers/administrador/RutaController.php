@@ -53,7 +53,9 @@ class RutaController extends Controller
             $file->move(public_path() .'/imagenes',$file->getClientOriginalName());
             $ruta->imagen = $file->getClientOriginalName();
         }
+        $ruta->titulo = request('titulo');
         $ruta->descripcion_rutas = request('descripcion_rutas');
+        $ruta->costo = request('costo');
        
         $ruta->save();
 

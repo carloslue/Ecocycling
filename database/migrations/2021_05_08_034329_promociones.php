@@ -20,6 +20,7 @@ class Promociones extends Migration
          $table->integer('cantidad');
          $table->string('descripcion');
          $table->decimal('precio');
+         $table->date('fecha_vigencia');
 
          $table->timestamps();
          $table->foreign('rutasID')->references('id')->on('rutas')->onDelete('cascade')->onUpdate('cascade');

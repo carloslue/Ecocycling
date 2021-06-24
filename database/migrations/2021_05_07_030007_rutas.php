@@ -16,7 +16,9 @@ class Rutas extends Migration
        Schema::create('rutas', function (Blueprint $table) {
            $table->bigIncrements('id');
            $table->string('imagen');
+           $table->string('titulo');
            $table->string('descripcion_rutas');
+           $table->decimal('costo');
            $table->timestamps();
        }); //
     }

@@ -7,9 +7,19 @@
             {!! $errors->first('imagen', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
+            {{ Form::label('titulo') }}
+            {{ Form::text('titulo', $ruta->titulo, ['class' => 'form-control' . ($errors->has('descripcion_rutas') ? ' is-invalid' : ''), 'placeholder' => 'titulo de Rutas']) }}
+            {!! $errors->first('titulo', '<div class="invalid-feedback">:message</p>') !!}
+        </div>
+        <div class="form-group">
             {{ Form::label('descripcion_rutas') }}
             {{ Form::text('descripcion_rutas', $ruta->descripcion_rutas, ['class' => 'form-control' . ($errors->has('descripcion_rutas') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion Rutas']) }}
             {!! $errors->first('descripcion_rutas', '<div class="invalid-feedback">:message</p>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('costo') }}
+            {{ Form::text('costo', $ruta->costo, ['class' => 'form-control' . ($errors->has('costo') ? ' is-invalid' : ''), 'placeholder' => 'costo de Rutas']) }}
+            {!! $errors->first('costo', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
     </div>

@@ -5,7 +5,7 @@
             {{ Form::label('rutaID') }}
             <select name="rutasID" id="" class="form-control ">
                 @foreach ($ruta as $rutas)
-                    <option  value="{{ $rutas->id }}">{{ $rutas->descripcion_rutas }}</option>
+                    <option  value="{{ $rutas->id }}">{{ $rutas->titulo }}</option>
                 @endforeach
             </select>
         </div>
@@ -31,6 +31,11 @@
             {{ Form::label('precio') }}
             {{ Form::text('precio', $promocione->precio, ['class' => 'form-control' . ($errors->has('precio') ? ' is-invalid' : ''), 'placeholder' => 'Precio']) }}
             {!! $errors->first('precio', '<div class="invalid-feedback">:message</p>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('valido asta') }}
+            {{ Form::date('fecha_vigencia', $promocione->fecha_vigencia, ['class' => 'form-control' . ($errors->has('fecha_vigencia') ? ' is-invalid' : ''), 'placeholder' => 'fecha de validez']) }}
+            {!! $errors->first('fecha_vigencia', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
     </div>

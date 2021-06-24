@@ -41,6 +41,7 @@
 										<th>Cantidad</th>
 										<th>Descripcion</th>
 										<th>Precio</th>
+                                        <th>Valido asta</th>
 
                                         <th></th>
                                     </tr>
@@ -50,11 +51,12 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $promocione->descripcion_rutas}}</td>
+											<td>{{ $promocione->titulo}}</td>
 											<td>{{ $promocione->descripcion_equipo}}</td>
 											<td>{{ $promocione->cantidad }}</td>
 											<td>{{ $promocione->descripcion }}</td>
 											<td>{{ $promocione->precio }}</td>
+                                            <td>{{ $promocione->fecha_vigencia }}</td>
 
                                             <td>
                                                 <form action="{{ route('promociones.destroy',$promocione->id) }}" method="POST">

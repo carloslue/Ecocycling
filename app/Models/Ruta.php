@@ -24,6 +24,8 @@ class Ruta extends Model
     static $rules = [
 		'imagen' => 'required',
 		'descripcion_rutas' => 'required',
+        'titulo' => 'required',
+        'costo' => 'required',
     ];
 
     protected $perPage = 20;

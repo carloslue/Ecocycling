@@ -40,6 +40,10 @@
                             <strong>Precio:</strong>
                             {{ $promocione->precio }}
                         </div>
+                        <div class="form-group">
+                            <strong>fecha de vigencia:</strong>
+                            {{ $promocione->fecha_vigencia }}
+                        </div>
 
                     </div>
                 </div>
