@@ -1,7 +1,7 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
 @section('template_title')
-    Promocione
+    Reservaspromo
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Promocione') }}
+                                {{ __('Reservaspromo') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('promociones.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('reservasproms.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,33 +36,38 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Rutasid</th>
-										<th>Equipoid</th>
-										<th>Cantidad</th>
-										<th>Descripcion</th>
-										<th>Precio</th>
+										<th>Clienteid</th>
+										
+                                        <th>ruta</th>
+                                        <th>cantidad</th>
+                                        <th>precio</th>
+                                        <th>fecha de vigencia</th>
+										<th>Fecha Visita</th>
+										<th>Hora</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($Promociones as $promocione)
+                                    @foreach ($reservaspromos as $reservaspromo)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $promocione->descripcion_rutas}}</td>
-											<td>{{ $promocione->descripcion_equipo}}</td>
-											<td>{{ $promocione->cantidad }}</td>
-											<td>{{ $promocione->descripcion }}</td>
-											<td>{{ $promocione->precio }}</td>
+											<td>{{ $reservaspromo->name }}</td>
+											<td>{{ $reservaspromo->rutasID }}</td>
+                                            <td>{{ $reservaspromo->cantidad }}</td>
+                                            <td>{{ $reservaspromo->precio }}</td>
+                                            <td>{{ $reservaspromo->fecha_vigencia }}</td>
+											<td>{{ $reservaspromo->fecha_visita }}</td>
+											<td>{{ $reservaspromo->hora }}</td>
 
                                             <td>
-                                                <form action="{{ route('promociones.destroy',$promocione->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('promociones.show',$promocione->id) }}"><i class="fa fa-fw fa-eye"></i> </a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('promociones.edit',$promocione->id) }}"><i class="fa fa-fw fa-edit"></i> </a>
+                                                <form action="{{ route('reservasproms.destroy',$reservaspromo->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('reservasproms.show',$reservaspromo->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('reservasproms.edit',$reservaspromo->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> </button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
                                                 </form>
                                             </td>
                                         </tr>

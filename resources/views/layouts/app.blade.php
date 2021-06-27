@@ -39,7 +39,9 @@
                         <a class="btn nav-link" href="{{ route('promocione') }}">{{ __('promociones') }}</a>
                         <a class="btn nav-link" href="{{ route('client') }}">{{ __('clientes') }}</a>
                         <a class="btn nav-link" href="{{ route('reservaindex') }}">{{ __('reservas') }}</a>
-              
+                         <a class="btn nav-link" href="{{ route('reservasp') }}">{{ __('reservaspromocion') }}</a>
+                      
+                       
                     </ul>
                     @endif
 
@@ -82,14 +84,14 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 ">
             @yield('content')
         </main>
+        <main class="py-4 fondo">
+            @yield('contentt')
+        </main>
         <div class=" barra footer">
-            hola
-            <Br></Br>
-        
-        este es el <br>footer
+           <center><h3><b>derechos reservados de ECOCYCLING el salvador</b></h3></center>
     </div>
     </div>
 
@@ -99,12 +101,11 @@
 
 <style>
     .barra{
-        background: rgb(12, 65, 209);
+        background: rgb(28, 231, 2);
        
     }
 
-    .btn{
-        
-        
+    .fondo{
+        background: rgb(0, 3, 15);
     }
     </style>

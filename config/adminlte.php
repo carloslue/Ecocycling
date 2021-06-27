@@ -267,6 +267,11 @@ return [
             'icon' => 'fas fa-fw fa-calendar-alt',
         ],
         [
+            'text' => 'Reservas promociones',
+            'route'  => 'reservasprom',
+            'icon' => 'fas fa-fw fa-calendar-alt',
+        ],
+        [
             'text' => 'Reservas',
             'route'  => 'reservas',
             'icon' => 'fas fa-fw fa-clipboard-check',

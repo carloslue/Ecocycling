@@ -19,7 +19,10 @@
                     </div>
 
                     <div class="card-body">
-                        
+                        <div class="form-group">
+                            <strong>id:</strong>
+                            {{ $promocione->id }}
+                        </div>
                         <div class="form-group">
                             <strong>Rutasid:</strong>
                             {{ $promocione->rutasID }}

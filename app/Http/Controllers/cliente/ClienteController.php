@@ -20,7 +20,7 @@ class ClienteController extends Controller
     {
         $clientes = Cliente::paginate();
 
-        return view('usuariocliente.index', compact('clientes'))
+        return view('cliente.usuariocliente.index', compact('clientes'))
             ->with('i', (request()->input('page', 1) - 1) * $clientes->perPage());
     }
 

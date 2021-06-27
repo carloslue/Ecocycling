@@ -1,7 +1,7 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
 @section('template_title')
-    Create Ruta
+    Create Reservaspromo
 @endsection
 
 @section('content')
@@ -13,13 +13,13 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Ruta</span>
+                        <span class="card-title">Create Reservaspromo</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('rutas.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('reservasproms.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('ruta.form')
+                            @include('cliente.reservaspromo.formrealizar')
 
                         </form>
                     </div>

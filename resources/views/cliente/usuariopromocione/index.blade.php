@@ -37,8 +37,9 @@
 										<th>Cantidad</th>
 										<th>Descripcion</th>
 										<th>Precio</th>
+                                        <th>valido hasta:</th>
 
-                                        <th></th>
+                                        <th>accion</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -46,14 +47,15 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $promocione->descripcion_rutas}}</td>
+											<td>{{ $promocione->titulo}}</td>
 											<td>{{ $promocione->descripcion_equipo}}</td>
 											<td>{{ $promocione->cantidad }}</td>
 											<td>{{ $promocione->descripcion }}</td>
 											<td>{{ $promocione->precio }}</td>
+                                            <td>{{ $promocione->fecha_vigencia }}</td>
 
                                             <td>
-                                                  <a class="btn btn-sm btn-primary " href="{{ route('promocion.show',$promocione->id) }}"><i class="fa fa-fw fa-eye"></i>ver </a>
+                                                  <a class="btn btn-sm btn-primary " href="{{ route('promocion.show',$promocione->id) }}"><i class="fa fa-fw fa-eye"></i>Reservar Promocion </a>
                                                    
                                             </td>
                                         </tr>

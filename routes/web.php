@@ -2,16 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,6 +29,9 @@ Route::get('cliente/reservas',[App\Http\Controllers\cliente\ReservaController::c
 Route::resource('promocion',App\Http\Controllers\cliente\PromocioneController::class)->middleware('auth');
 Route::get('cliente/promociones',[App\Http\Controllers\cliente\PromocioneController::class,'index'])->name('promocione')->middleware('auth');
 
+Route::resource('reservasproms',App\Http\Controllers\cliente\ReservaspromoController::class)->middleware('auth');
+Route::get('reservaspromo',[App\Http\Controllers\cliente\ReservaspromoController::class,'index'])->name('reservasp')->middleware('auth');
+
 
 
 /*sector donde se especifica todas las rutas de la parte administrativa*/
@@ -63,4 +57,13 @@ Route::get('administrador/reservas',[App\Http\Controllers\administrador\ReservaC
 Route::resource('administrador/promociones',App\Http\Controllers\administrador\PromocioneController::class)->middleware('auth');
 Route::get('administrador/promociones',[App\Http\Controllers\administrador\PromocioneController::class,'index'])->name('promociones')->middleware('auth');
 
+Route::resource('reservaspromos',App\Http\Controllers\administrador\ReservaspromoController::class)->middleware('auth');
+Route::get('administrador/reservaspromo',[App\Http\Controllers\administrador\ReservaspromoController::class,'index'])->name('reservasprom')->middleware('auth');
+
 Route::get('home', [App\Http\Controllers\administrador\HomeController::class, 'index'])->name('home');
+
+
+
+/*definicion de rutas que se van a mostrar al publico este no requiere validacion de <usuario></usuario*/
+
+Route::get('rutapublico',[App\Http\Controllers\RutaController::class,'index'])->name('publico');

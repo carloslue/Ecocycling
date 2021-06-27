@@ -1,7 +1,8 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
 
 @section('template_title')
-    {{ $promocione->name ?? 'Show Promocione' }}
+    {{ $reservaspromo->name ?? 'Show Reservaspromo' }}
 @endsection
 
 @section('content')
@@ -11,34 +12,30 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Promocione</span>
+                            <span class="card-title">Show Reservaspromo</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('promociones.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('reservaspromos.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Rutasid:</strong>
-                            {{ $promocione->rutasID }}
+                            <strong>Clienteid:</strong>
+                            {{ $reservaspromo->clienteID }}
                         </div>
                         <div class="form-group">
-                            <strong>Equipoid:</strong>
-                            {{ $promocione->equipoID }}
+                            <strong>Promocionid:</strong>
+                            {{ $reservaspromo->promocionID }}
                         </div>
                         <div class="form-group">
-                            <strong>Cantidad:</strong>
-                            {{ $promocione->cantidad }}
+                            <strong>Fecha Visita:</strong>
+                            {{ $reservaspromo->fecha_visita }}
                         </div>
                         <div class="form-group">
-                            <strong>Descripcion:</strong>
-                            {{ $promocione->descripcion }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Precio:</strong>
-                            {{ $promocione->precio }}
+                            <strong>Hora:</strong>
+                            {{ $reservaspromo->hora }}
                         </div>
 
                     </div>

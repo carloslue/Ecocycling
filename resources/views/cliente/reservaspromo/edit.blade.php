@@ -1,25 +1,26 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
 @section('template_title')
-    Create Promocione
+    Update Reservaspromo
 @endsection
 
 @section('content')
     <section class="content container-fluid">
-        <div class="row">
+        <div class="">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
                 <div class="card card-default">
-                    <div class="card-header bg-info">
-                        <span class="card-title ">Agregar Promocion</span>
+                    <div class="card-header">
+                        <span class="card-title">Update Reservaspromo</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('promociones.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('reservasproms.update', $reservaspromo->id) }}"  role="form" enctype="multipart/form-data">
+                            {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('promocione.form')
+                            @include('cliente.reservaspromo.form')
 
                         </form>
                     </div>

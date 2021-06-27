@@ -26,7 +26,7 @@ class PromocioneController extends Controller
             $Promociones = DB::table('promociones')
             ->join('equipos', 'equipos.id', '=', 'promociones.equipoID')
             ->join('rutas', 'rutas.id', '=', 'promociones.rutasID')
-            ->select('promociones.*', 'rutas.descripcion_rutas','equipos.descripcion_equipo')
+            ->select('promociones.*', 'rutas.titulo','equipos.descripcion_equipo')
             ->get();
 
           
@@ -46,7 +46,7 @@ class PromocioneController extends Controller
     {
         $promocione = Promocione::find($id);
 
-        return view('cliente.usuariopromocione.show', compact('promocione'));
+        return view('cliente.reservaspromo.formrealizar', compact('promocione'));
     }
 
     

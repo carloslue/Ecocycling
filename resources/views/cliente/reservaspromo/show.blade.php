@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
+
 @section('template_title')
-    {{ $informacion->name ?? 'Show Informacion' }}
+    {{ $reservaspromo->name ?? 'Show Reservaspromo' }}
 @endsection
 
 @section('content')
@@ -11,30 +12,30 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Informacion</span>
+                            <span class="card-title">Show Reservaspromo</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('informacions.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('reservasp') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Mision:</strong>
-                            {{ $informacion->mision }}
+                            <strong>Clienteid:</strong>
+                            {{ $reservaspromo->clienteID }}
                         </div>
                         <div class="form-group">
-                            <strong>Vision:</strong>
-                            {{ $informacion->vision }}
+                            <strong>Promocionid:</strong>
+                            {{ $reservaspromo->promocionID }}
                         </div>
                         <div class="form-group">
-                            <strong>General:</strong>
-                            {{ $informacion->general }}
+                            <strong>Fecha Visita:</strong>
+                            {{ $reservaspromo->fecha_visita }}
                         </div>
                         <div class="form-group">
-                            <strong>Epecifico:</strong>
-                            {{ $informacion->epecifico }}
+                            <strong>Hora:</strong>
+                            {{ $reservaspromo->hora }}
                         </div>
 
                     </div>
